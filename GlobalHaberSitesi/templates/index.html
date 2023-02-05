@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teknoloji Haberleri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Teknoloji Haberleri</h1>
+    <img src="https://w7.pngwing.com/pngs/928/115/png-transparent-globe-technology-low-earth-orbit-globe-miscellaneous-world-sphere.png" alt="" style=" border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;">
+  </header>
+  <main>
+    {% for content in users %}
+        <div class="news-item" >
+          <div class="image-container" style="width: 100%; height: 50%;">
+            <img src="{{content[8]}}" alt="Haber Resmi" style="width: 100%; height: 100%;">
+          </div>
+          <br>
+          
+          <h2 class="news-title"><a href =" {{ url_for('details', Id=content[0])}}" id="{{content[0]}} " style="text-decoration: none; color: aliceblue;">{{content[3]}}</a></h2>
+          <p class="news-content">{{(content[4])[0:500]}}...</p>
+         
+        </div>
+    {% endfor %}
+   
+  </main>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {{pagination.links}}
+     
+    </ul>
+  </nav>
+  
+  <footer>
+    Tüm Hakları Saklıdır &copy; 2023
+    </footer>
+    
+ 
+<style>
+
+  .pagination {
+    display: inline-flex;
+    list-style-type: none;
+    color: rgb(255, 255, 255);
+  }
+  
+  .pagination a {
+    color: rgb(255, 255, 255);
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    text-decoration: none;
+  }
+  
+  .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        
+      }
+      
+      header {
+        background-color: #111;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        color: #fff;
+        margin: 0;
+      }
+      
+      header nav {
+        display: flex;
+      }
+      
+      header nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      
+      header nav ul li {
+        margin: 0 10px;
+      }
+      
+      header nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px;
+      }
+      
+      .news-item {
+        width: 30%;
+        background-color: #222;
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+        box-shadow: 0 0 10px #000;
+      }
+      
+      .news-item img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      
+      .news-title {
+        color: #fff;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      
+      .news-content {
+        height: fit-content;
+        margin: 0;
+        margin-bottom: 20px;
+        color: rgb(212, 209, 214);
+        font-weight: 500;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      
+      .news-source {
+        color: #999;
+        margin: 0;
+      }
+      
+      footer {
+        background-color: #111;
+        padding: 20px;
+        text-align: center;
+        color: #999;
+      }
+      
+</style>

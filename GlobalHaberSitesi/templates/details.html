@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teknoloji Haberleri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Teknoloji Haberleri</h1>
+    <nav>
+      <ul>
+        <li><a href="{{url_for('index')}}">Ana Sayfa</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="detail-page">
+        <h1 class="title">{{data[3]}}</h1>
+        <div class="post-meta">
+          <img src="{{ data[8] }}" alt="Post Image">
+          <div class="post-info">
+            <h2 class="subtitle"> <a href="" style="text-decoration: none; color: rgb(250, 160, 160);">Orjinal İçerik</a></h2>
+            <p class="date">Tarih: {{ parse(data[7]).date() }}</p>
+            <p class="source">Kaynak: {{data[6]}}</p>
+          </div>
+        </div>
+        <div class="post-content">
+          {% for i in cont %}
+            <p>{{i}}</p>
+          {% endfor %}
+          <h2 class="subtitle">{{data[1]}}</h2>
+          <p>{{data[2]}}</p>
+        </div>
+       
+      </div>
+     
+  </main>
+  
+ 
+  <footer>
+    Tüm Hakları Saklıdır &copy; 2023
+    </footer>
+ 
+<style>
+ 
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1c1c1c;
+        
+      }
+      
+      header {
+        background-color: #1f1f1fe1;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        color: #bebebe;
+        margin: 0;
+      }
+      
+      header nav {
+        display: flex;
+      }
+      
+      header nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      
+      header nav ul li {
+        margin: 0 10px;
+      }
+      
+      header nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px;
+      }
+      
+      .news-item {
+        width: 30%;
+        background-color: #222;
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+        box-shadow: 0 0 10px #000;
+      }
+      
+      .news-item img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      
+      .news-title {
+        color: #fff;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      
+      .news-content {
+        
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      
+      .news-source {
+        color: #999;
+        margin: 0;
+      }
+      
+      footer {
+        background-color:  #575757;
+        padding: 20px;
+        text-align: center;
+        color: #bbbbbb;
+      }
+   
+      
+</style>
+
+ 
+<style>
+    body{
+        background-color: #141414;
+    }
+    .detail-page {
+        font-family: Arial, sans-serif;
+        width: 80%;
+        margin: 50px auto;
+        text-align: center;
+      }
+      
+      .title {
+        font-size: 36px;
+        color: #d4d4d4;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+      
+      .post-meta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px 0;
+      }
+      
+      .post-meta img {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+      
+      .post-info {
+        color: #fff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        margin-left: 30px;
+      }
+      
+      .subtitle {
+        font-size: 24px;
+        color: rgb(187, 187, 187);
+      }
+      
+      .date {
+        font-size: 18px;
+        
+      }
+      
+      .source {
+        font-size: 18px;
+        
+      }
+      
+    .post-content p {
+        color: rgb(231, 213, 213);
+        
+    }
+      
+  </style>
